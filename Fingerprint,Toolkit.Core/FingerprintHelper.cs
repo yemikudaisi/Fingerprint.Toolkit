@@ -3,7 +3,7 @@ using System;
 using DPFP;
 using DPFP.Verification;
 
-namespace CND.Biometric.Fingerprint
+namespace Fingerprint.Toolkit
 {
     public class FingerprintHelper
     {

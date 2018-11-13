@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CND.Biometric.Fingerprint
+namespace Fingerprint.Toolkit
 {
     public static class TemplateArchiveHelper
     {
 
-        public static bool SaveTemplateArchive(FingerprintTemplateCollection templates, string fileName)
+        public static bool SaveTemplateArchive(FingerprintTemplateCollection templates, string filePath)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace CND.Biometric.Fingerprint
                         }
                     }
 
-                    using (var fileStream = File.Open(fileName, FileMode.Create, FileAccess.Write))
+                    using (var fileStream = File.Open(filePath, FileMode.Create, FileAccess.Write))
                     {
                         memoryStream.Seek(0, SeekOrigin.Begin);
                         memoryStream.CopyTo(fileStream);
@@ -47,9 +47,9 @@ namespace CND.Biometric.Fingerprint
             }
         }
 
-        public static FingerprintTemplateCollection GetTemplates(String zipPath)
+        public static FingerprintTemplateCollection GetTemplates(String filePath)
         {
-            if (!File.Exists(zipPath))
+            if (!File.Exists(filePath))
                 return new FingerprintTemplateCollection();
 
             var templates = new FingerprintTemplateCollection();
@@ -58,7 +58,7 @@ namespace CND.Biometric.Fingerprint
                 string extractPath = System.IO.Path.GetTempPath()+"cnd-biometric";
                 System.IO.Directory.CreateDirectory(extractPath);
 
-                using (ZipArchive archive = ZipFile.OpenRead(zipPath))
+                using (ZipArchive archive = ZipFile.OpenRead(filePath))
                 {
                     foreach (ZipArchiveEntry entry in archive.Entries)
                     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CND.Biometric.Fingerprint
+namespace Fingerprint.Toolkit
 {
     public enum Hands
     {

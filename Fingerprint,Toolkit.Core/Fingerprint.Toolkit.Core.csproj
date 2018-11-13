@@ -7,8 +7,8 @@
     <ProjectGuid>{2EAE00B1-305E-4DEB-9332-D045B5ACE48F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CND.Biometric.Fingerprint</RootNamespace>
-    <AssemblyName>CND.Biometric.Fingerprint</AssemblyName>
+    <RootNamespace>Fingerprint.Toolkit</RootNamespace>
+    <AssemblyName>Fingerprint.Toolkit.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,11 +30,16 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DPFPEngNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=7fe76e7adf19964b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPEngNET.dll</HintPath>
+    </Reference>
+    <Reference Include="DPFPGuiNET, Version=1.4.0.0, Culture=neutral, PublicKeyToken=d4f4a0bd9c559145, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files\DigitalPersona\One Touch SDK\.NET\Bin\DPFPGuiNET.dll</HintPath>
     </Reference>
     <Reference Include="DPFPShrNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=d902fe275a8d6cf2, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -45,8 +51,10 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -56,6 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DigitalPersonaHelper.cs" />
+    <Compile Include="EnrollmentEventArgs.cs" />
+    <Compile Include="Windows\EnrollmentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\EnrollmentView.Designer.cs">
+      <DependentUpon>EnrollmentView.cs</DependentUpon>
+    </Compile>
     <Compile Include="FingerprintHelper.cs" />
     <Compile Include="FingerprintTemplate.cs" />
     <Compile Include="FingerprintTemplateCollection.cs" />
@@ -63,6 +78,11 @@
     <Compile Include="Hands.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TemplateArchiveHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Windows\EnrollmentView.resx">
+      <DependentUpon>EnrollmentView.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
