@@ -5,6 +5,9 @@ A simple fingerprint helper library for DigitalPersona fingerprint readers.
 - Get all enrolled fingerprint as a collection.
 - Read/Write a fingerprint coollection as an archive to and from a file.
 
+## Todo
+- Add verification support
+
 ## Example usage
 See demo project for a working example.
 
