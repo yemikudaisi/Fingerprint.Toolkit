@@ -3,7 +3,7 @@ A simple fingerprint helper library for DigitalPersona fingerprint readers.
 
 ## Features
 - Get all enrolled fingerprint as a collection.
-- Read/Write a fingerprint coollection as an archive to and from a file.
+- Read/Write a collection of fingerprints as an archive from/to a file.
 
 ## Todo
 - Add verification support
@@ -11,9 +11,9 @@ A simple fingerprint helper library for DigitalPersona fingerprint readers.
 ## Example usage
 See demo project for a working example.
 
-```Ç#
+```cs
 public class Demo (){
-    const string FILE_NAME= "fingerprints-collection.tarc";
+    const string FILE_NAME= "fingerprint-collection.tarc";
     FingerprintTemplateCollection templatesCollection;
 
     public Demo()
@@ -52,7 +52,7 @@ public class Demo (){
 
 ## Issue Reporting
 
-If you have found a bug or if you have a feature request, please report them at this repository issues section.
+If you have found a bug or if you have a feature request, please report them by creating a new Issue.
 
 ## Author
 
